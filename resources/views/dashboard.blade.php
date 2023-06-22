@@ -13,6 +13,8 @@
 @section('content')
 
 
-<h1>Aqui esta o conteudo do Dashboard</h1>
+<main class="content">
+    <h1>O conteudo está aqui</h1>
+</main>
 
 @endsection

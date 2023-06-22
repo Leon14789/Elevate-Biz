@@ -22,3 +22,5 @@ I already turned it upside down, I tried to use GEPETO, Documentation, but nothi
 and even creating a new project and searching for the error messages they still don't appear
 
 obs: I already tried to use the search in VS
+
+Buscar como ocultar comentarios ao dar inspecionar no codigo
