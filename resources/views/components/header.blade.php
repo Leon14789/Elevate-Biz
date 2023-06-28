@@ -14,7 +14,7 @@
     <div class="menu-user">
         <div class="menu-user-button">
             <span class="ml-2">Nome Users</span>
-            <i class="icofont-duotone icofont-click icofont-1x mx-2"></i>
+            <i class="icofont-duotone icofont-plus-circle icofont-2x mx-2"></i>
            
         </div>
         <div class="menu-user-content">
@@ -28,7 +28,7 @@
                 <li class="nav-item">
                     <a href="/login">Sair</a>
                 </li>
-                <li class="nav-item">
+                 <li class="nav-item">
                     <a href="/login">Sair</a>
                 </li>
             </ul>

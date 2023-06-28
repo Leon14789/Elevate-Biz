@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
-
+   
+    
     <title>  @yield('title')</title>
 </head>
 <body>
@@ -24,3 +25,6 @@
    </footer>
 </body>
 </html>
+
+  <!-- Scripts -->
+  <script src="/assets/js/menu-togle.js"></script>
