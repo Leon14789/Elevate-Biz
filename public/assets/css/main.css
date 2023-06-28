@@ -16,10 +16,88 @@ body {
 
  }
 
-    header {
+ header.header {
         grid-area: header;
-        background-color: blue;
+        background-color: #1976d2;
+        box-shadow: 0px 14px 14px -1px rgba(0,0,0,0.71);
+        display: flex;
+        align-items: center;
+        z-index: 10;
     }
+
+        header.header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-basis: 15%;
+            color: #f1f1f1;
+
+        }
+
+        header.header .menu {
+           color: #f1f1f1; 
+           cursor: pointer;
+        }
+
+        header.header .spacer {
+           flex-grow: 1;
+         }
+
+        header.header .menu-user-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #f1f1f1;
+            font-weight: bold;
+            cursor: pointer;
+          }
+        
+        header.header .menu-user-content {
+           display: none; 
+           position: absolute;
+           min-width: 100%;
+           background-color: #f9f9f9;
+           z-index: 100;
+           box-shadow: 0px 14px 5px 0px rgba(0,0,0,0.75);
+          }
+
+          header.header .menu-user:hover .menu-user-content {
+            display: block;  
+        }
+
+        header.header .menu-user:hover {
+            padding: 1% 0px ;
+            background-color: rgb(0, 0, 0, .1);
+        }
+
+        header.header .menu-user-content .nav-item:hover{
+          
+            background-color: rgb(0, 0, 0, .1);
+        }
+
+        
+
+        header.header .menu-user-content ul{
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        header.header .menu-user-content a{
+           display: flex;
+           text-decoration: none;
+           color: #222;
+           padding: 7px;
+        }
+
+        
+
+          
 
     main {
         grid-area: main;
@@ -34,6 +112,42 @@ body {
 
     aside.sidebar {
         grid-area: sidebar;
-        background-color: green;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
 
+    }
+
+    aside.sidebar .menu  {
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    aside.sidebar .menu ul.nav-list  {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+    }
+
+    aside.sidebar .menu li.nav-item  {
+        margin: 0;
+        padding: 10px 0px 10px 25px;
+    }
+
+    aside.sidebar .menu li.nav-item:hover  {
+        background-color: rgb(0, 0, 0, .1);
+    }
+
+    aside.sidebar .menu li.nav-item a {
+       text-decoration: none;
+       color: #555;
+    }
+
+
+    /* Additional Details */
+
+    ::selection {
+        color: transparent;
+        background-color: transparent;
     }
