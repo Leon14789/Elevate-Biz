@@ -14,12 +14,15 @@
 <body class="hide-sidebar">
 <x-header /> 
 <x-left-menu />
+
+<main class="content">
     @yield('content')
 
+    </main>
+   
 
 
 <x-footer /> 
-   
 </body>
 </html>
 
