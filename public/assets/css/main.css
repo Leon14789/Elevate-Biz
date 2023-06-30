@@ -16,6 +16,15 @@ body {
 
  }
 
+ body.hide-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer"
+    ;
+ }
+
  header.header {
         grid-area: header;
         background-color: #1976d2;
@@ -116,6 +125,11 @@ body {
         flex-direction: column;
         align-items: center;
         background-color: #fff;
+
+    }
+
+   .hide-sidebar aside.sidebar {
+       display: none;
 
     }
 

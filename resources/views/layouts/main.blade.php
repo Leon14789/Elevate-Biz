@@ -11,7 +11,7 @@
     
     <title>  @yield('title')</title>
 </head>
-<body>
+<body class="hide-sidebar">
 <x-header /> 
 <x-left-menu />
     @yield('content')
