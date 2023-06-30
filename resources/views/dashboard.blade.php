@@ -15,6 +15,7 @@
 
 <main class="content">
     <h1>O conteudo está aqui</h1>
+    <h1>O conteudo está aqui</h1>
 </main>
 
 @endsection

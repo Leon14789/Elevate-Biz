@@ -36,5 +36,26 @@
                 
             </ul>
         </nav>
+
+        <div class="sidebar-widgets">
+            <div class="sidebar-widget">
+                <i class="icon icofont-duotone icofont-play-circle icofont-2x mr-2" id="icon"></i>
+                <div class="information">
+                    <span class="information-main text-primary">4:23</span>
+                    <span class="label text-muted">Horas Trabalhadas</span>
+                </div>
+            </div>
+
+            <div class="division my-3" ></div>
+            
+            <div class="sidebar-widget">
+                <i class="icon icofont-duotone icofont-pause icofont-2x mr-2" id="icon"></i>
+                <div class="information">
+                    <span class="information-main text-primary">18:23</span>
+                    <span class="label text-muted">Hora de Saida</span>
+                </div>
+            </div>
+            
+       
     </aside>
         

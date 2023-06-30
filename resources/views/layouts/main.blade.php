@@ -18,11 +18,8 @@
 
 
 
-   <footer class="footer">
-    <div>
-        <h3>Desenvolvido por <strong>Leonardo O. Alves</strong></h3>
-    </div>
-   </footer>
+<x-footer /> 
+   
 </body>
 </html>
 
