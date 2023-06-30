@@ -20,17 +20,9 @@
         <div class="menu-user-content">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="/login">Sair</a>
+                <a href="{{ route('destroy') }}">Sair</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/login">Sair</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/login">Sair</a>
-                </li>
-                 <li class="nav-item">
-                    <a href="/login">Sair</a>
-                </li>
+                
             </ul>
         </div>
     </div>

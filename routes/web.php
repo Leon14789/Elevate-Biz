@@ -1,15 +1,19 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
-
+// Dashboard foi usado como tela principal do projeto "index"
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
-// Dashboard foi usado como tela principal do projeto "index"
+
+// Logout 
+Route::get('/AuthenticatedSessionController', [AuthenticatedSessionController::class, 'destroy'])->name('destroy');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
