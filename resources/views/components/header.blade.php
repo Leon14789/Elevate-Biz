@@ -13,14 +13,18 @@
 
     <div class="menu-user">
         <div class="menu-user-button">
-            <span class="ml-2">Nome Users</span>
+        <!--  Aqui acesso a model User vejo o usuario logado na Session e exibo o Nome dele -->
+            <span class="ml-2"> {{Auth::User()->name}} </span>
             <i class="icofont-duotone icofont-user icofont-2x mx-2"></i>
            
         </div>
         <div class="menu-user-content">
             <ul class="nav-list">
                 <li class="nav-item">
-                <a href="{{ route('destroy') }}">Sair</a>
+                <a href="{{ route('destroy') }}">
+                    <i class="icofont-duotone icofont-sign-out icofont-2x mx-2"></i>
+                        Sair
+                </a>
                 </li>
                 
             </ul>

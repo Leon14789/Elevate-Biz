@@ -99,9 +99,11 @@ body {
 
         header.header .menu-user-content a{
            display: flex;
+           align-items: center;
            text-decoration: none;
            color: #222;
            padding: 7px;
+           
         }
 
         

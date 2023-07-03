@@ -51,7 +51,7 @@
             <div class="sidebar-widget">
                 <i class="icon icofont-duotone icofont-pause icofont-2x mr-2" id="icon"></i>
                 <div class="information">
-                    <span class="information-main text-primary">18:23</span>
+                    <span class="information-main text-danger">18:23</span>
                     <span class="label text-muted">Hora de Saida</span>
                 </div>
             </div>

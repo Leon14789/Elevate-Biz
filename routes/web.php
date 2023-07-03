@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 // Dashboard foi usado como tela principal do projeto "index"
@@ -13,6 +14,7 @@ Route::get('/', function () {
 
 // Logout 
 Route::get('/AuthenticatedSessionController', [AuthenticatedSessionController::class, 'destroy'])->name('destroy');
+
 
 
 Route::get('/dashboard', function () {

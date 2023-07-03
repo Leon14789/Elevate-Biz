@@ -15,7 +15,11 @@
 
     <div class="card">
         <div class="card-header">
-            <h3>10 de Jan de 2023</h3>
+            <h3> 
+                Dia {{ now()->format('d') }} 
+                de {{ now()->format('M') }} 
+                de {{ now()->format('Y') }} 
+            </h3>
             <p>Batimentos Efetuados Hoje: </p>
         </div>
         <div class="card-body">
