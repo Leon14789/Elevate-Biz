@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\dataGeneratorController;
 use Illuminate\Support\Facades\Route;
 
 // Dashboard foi usado como tela principal do projeto "index"
@@ -14,6 +15,9 @@ Route::get('/', function () {
 
 // Logout 
 Route::get('/AuthenticatedSessionController', [AuthenticatedSessionController::class, 'destroy'])->name('destroy');
+
+// Create metody hours 
+Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayTemplateByOdds']);
 
 
 

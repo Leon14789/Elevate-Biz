@@ -41,7 +41,7 @@ body{
 }
 form{
     height: 85%;
-    width: 40%;
+    width: 50%;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
@@ -69,7 +69,8 @@ form h3{
 
 label{
     display: block;
-    margin-top: 10px;
+    margin: 10px 10px 0px 10px;
+    
     font-size: 16px;
     font-weight: 500;
 }
@@ -120,3 +121,64 @@ button{
 .social i{
   margin-right: 4px;
 }
+
+ div .form-flex {
+   
+    display: flex;
+    flex-direction: column;
+}
+
+div .form-flex .two-elements {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    align-items: baseline;
+}
+
+/* Select */
+
+.box {
+    position: relative;
+    background-color: #37363e;
+    width: 100%;
+    padding: 15px;
+    border-radius: 3%;
+  }
+  
+  .box select {
+    background-color: #252527;
+    color: white;
+    padding: 12px;
+    width: 250px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .box::before {
+    content: "\f13a";
+   
+   
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .box select option {
+    padding: 30px;
+  }
