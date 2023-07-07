@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->length(6);
             $table->string('work_date');
-            $table->date('time1');
-            $table->date('time2');
-            $table->date('time3');
-            $table->date('time4');
+            $table->datetime('time1');
+            $table->datetime('time2');
+            $table->datetime('time3');
+            $table->datetime('time4');
             $table->string('worked_time');
             $table->timestamps();
 

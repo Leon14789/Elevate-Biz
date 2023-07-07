@@ -3,14 +3,14 @@
             <ul class="nav-list">
 
                 <li class="nav-item">
-                    <a href="#">
+                        <a href="{{route('registerPoint')}}">
                     <i class="icofont-duotone icofont-mouse-pointer-highlighter icofont-2x mr-2"></i>
                         Registrar Ponto
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#">
+                    <a href="{{route('reportsMonthly')}}">
                     <i class="icofont-files-stack"></i>
                     <i class="icofont-duotone icofont-articles icofont-2x mr-2"></i>
                         Relatorio Mensal

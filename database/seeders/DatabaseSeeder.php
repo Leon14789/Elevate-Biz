@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
    
     public function run(): void
     {
+        // Uso do metodo para gerar usuarios e carga horaria 
        $this->call([
-
             CreateUserSeeder::class,
-           CreateHoursWorkeedSeeder::class
+            CreateHoursWorkeedSeeder::class
        ]);
 
 

@@ -14,21 +14,24 @@ class HourFactory extends Factory
      */
     public function definition(): array
     {
-            $years = random_int(1000, 2500);
-            $months = random_int(10, 12);
+            $years = random_int(2000, 2023);
+            $months = random_int(1, 12);
             $days =  random_int(10, 31);
-            $teste =  random_int(10, 31);
-            static $increment = 1;
+            $hour = random_int(7, 8);
+            $minute = random_int(00, 30);
+            $second = random_int(00, 00);
+          
+            static $user_id = 1;
 
            
             
             return [
-                'user_id' => $increment++,
-                'work_date' => $increment++,
-                'time1' => $years   . $months  . $days,
-                'time2' => $years   . $months  . $days,
-                'time3' => $years   . $months  . $days,
-                'time4' => $years   . $months  . $days,
+                'user_id' => $user_id++,
+                'work_date' => date("Y/m/d"),
+                'time1' =>  date("$years-$months-$days $hour:$minute:$second"),
+                'time2' => date("$years-$months-$days $hour:$minute:$second"),
+                'time3' => date("$years-$months-$days $hour:$minute:$second"),
+                'time4' => date("$years-$months-$days $hour:$minute:$second"),
                 'worked_time' => '8'
             
             ];
