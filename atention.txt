@@ -24,3 +24,8 @@ and even creating a new project and searching for the error messages they still 
 obs: I already tried to use the search in VS
 
 Buscar como ocultar comentarios ao dar inspecionar no codigo
+
+Dentro deste projeto existe um seeder para testes e criacao de uma jornada de trabalho que vem 
+assosiada a um ID de um usuario o nome do seeder é CreateHoursWorkeedSeeder
+
+com base no mesmo conceito temos o sedder para a criacao de usuarios chamado CreateUsersSeeder
