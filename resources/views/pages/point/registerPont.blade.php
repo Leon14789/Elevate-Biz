@@ -32,7 +32,7 @@
                 <span class="record">Saída 2: --- {{ $saida2 ?? 'Sem Batimento' }}</span>
             </div>
             <div class="card-footer d-flex justify-content-center">
-                <a href="#" class="btn btn-success btn-lg">
+                <a href="#" class="button">
                 <i class="icofont-duotone icofont-click icofont-1x"></i>
                 Bater Ponto
                 </a>

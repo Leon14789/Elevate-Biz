@@ -10,6 +10,9 @@ class hour extends Model
    // Model referente a tabela hours ou seja horas trabalhadas ou jornada de trabalho 
    use  HasFactory;
 
+   protected $guarded = [
+      
+   ];
 
 
    public static function loadFromUserAndDate($userId, $workDate){
@@ -21,7 +24,7 @@ class hour extends Model
                    ->first();
 
       if (!$registry) {
-         $registry = new hour([
+         $registry = new Hour([
             'user_id' => $userId,
             'work_date' => $workDate,
             'worked_time' => 0,
