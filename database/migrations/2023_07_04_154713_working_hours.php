@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->length(6);
             $table->string('work_date');
-            $table->datetime('time1');
-            $table->datetime('time2');
-            $table->datetime('time3');
-            $table->datetime('time4');
-            $table->string('worked_time');
+            $table->datetime('time1')->nullable();
+            $table->datetime('time2')->nullable();
+            $table->datetime('time3')->nullable();
+            $table->datetime('time4')->nullable();
+            $table->string('worked_time')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

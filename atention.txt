@@ -29,3 +29,10 @@ Dentro deste projeto existe um seeder para testes e criacao de uma jornada de tr
 assosiada a um ID de um usuario o nome do seeder é CreateHoursWorkeedSeeder
 
 com base no mesmo conceito temos o sedder para a criacao de usuarios chamado CreateUsersSeeder
+
+Dentro do projeto é usado para carretgar imgs a funcao asset() que carrega a partir da pasta public
+
+Antes de mostrar para o murillo lembrar de colocar todas as variaves com o padrao
+de todas a primeira letra minuscula e as demais maisculas   
+
+pedir ajuda com o valor null do projeto na tabela hour para trazer para a view ele exibe um hoario aleatorio

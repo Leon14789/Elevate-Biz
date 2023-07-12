@@ -25,9 +25,16 @@ Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayT
 Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'teste'])->name('reportsMonthly');
 
 
-// Dashboard
+// listWoringHours 
 Route::get('/Registrar-Ponto', [pointRecords::class, 'listWoringHours'])->name('registerPoint');
 
+// clock In
+Route::get('/Primeiro-Ponto-Batido', [pointRecords::class, 'insertHours'])->name('inserthours');
+
+// functionality to change times2,3 and 4 fields
+Route::get('/Bater-Demais-Pontos', [pointRecords::class, 'editHours'])->name('editHours');
+
+Route::get('/Registrar-Editar-Ponto', [pointRecords::class, 'createOrEditRecord'])->name('createOrEditRecord');
 
 
 Route::get('/dashboard', function () {

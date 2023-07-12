@@ -2,7 +2,7 @@
 @extends('layouts.main')
 <!--  para o titulo vir tinamicamente definimos a section 
     chamamos o title seguido de virgula dps 'o titulo' -->
-@section('title', 'Dashboard')
+@section('title', 'Registrar Batimento')
 
 <!--  e para reidenizar o conteudo dinamicamente chamamos 
     a section novamente e dps content -->
@@ -24,15 +24,15 @@
         </div>
         <div class="card-body">
             <div class="d-flex m-3 justify-content-around">
-            <span class="record">Entrada 1: --- {{ $entrada1 ?? 'Sem Batimento' }}</span>
-                <span class="record">Saída 1: --- {{ $saida1 ?? 'Sem Batimento' }}</span>
+            <span class="record">Entrada 1: --- {{$time1}}</span>
+                <span class="record">Saída 1: ---{{$time2}}</span>
             </div>
             <div class="d-flex m-3 justify-content-around">
-                <span class="record">Entrada 2: --- {{ $entrada2 ?? 'Sem Batimento' }}</span>
-                <span class="record">Saída 2: --- {{ $saida2 ?? 'Sem Batimento' }}</span>
+                <span class="record">Entrada 2: ---  {{$time3}}</span>
+                <span class="record">Saída 2: --- {{$time4}}</span>
             </div>
             <div class="card-footer d-flex justify-content-center">
-                <a href="#" class="button">
+                <a href="{{ route('createOrEditRecord') }}" class="button">
                 <i class="icofont-duotone icofont-click icofont-1x"></i>
                 Bater Ponto
                 </a>

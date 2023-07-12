@@ -15,24 +15,24 @@ class hour extends Model
    ];
 
 
-   public static function loadFromUserAndDate($userId, $workDate){
-
-
+   public static function loadFromUserAndDate($userId, $workDate) {
       $registry = self::where('user_id', $userId)
-                   ->where('work_date', $workDate)
-                   ->latest()
-                   ->first();
+          ->where('work_date', $workDate)
+          ->latest()
+          ->first();
+  
+      return $registry ?: null;
+  }
 
-      if (!$registry) {
-         $registry = new Hour([
-            'user_id' => $userId,
-            'work_date' => $workDate,
-            'worked_time' => 0,
+   public function getnextTime() {
+      if(!$this->time1) return 'time1';
+      if(!$this->time2) return 'time2';
+      if(!$this->time3) return 'time3';
+      if(!$this->time4) return 'time4';
+      return null;
 
-         ]);
-      }
-      
-      return $registry;
    }
+
+  
    
 }
