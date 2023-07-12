@@ -13,15 +13,7 @@ php artisan migrate
 npm install
 npm run dev
 
-the blade template for login, register and the dashboard is created
-Along with that comes the error messages like:
-These credentials do not match our records.
-however, I would like to transfer them to Portuguese for a better understanding of BR users.
-but here comes the question the error messages are not in the project!!!
-I already turned it upside down, I tried to use GEPETO, Documentation, but nothing really worked
-and even creating a new project and searching for the error messages they still don't appear
 
-obs: I already tried to use the search in VS
 
 Buscar como ocultar comentarios ao dar inspecionar no codigo
 
