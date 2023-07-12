@@ -1,0 +1,17 @@
+/* Var Colors */
+
+:root {
+    
+    --primary-color: #f1f1f1;
+    --secundary-color: #1976d2;
+    --terciary-color: #212529;
+
+    --footer-color: #222;
+
+    --text-color-primary: #444;
+    --text-color-secudary: #999;
+    --text-color-terciary: #fff;
+
+    --button-color: #28a745;
+
+}
