@@ -27,4 +27,13 @@ Dentro do projeto é usado para carretgar imgs a funcao asset() que carrega a pa
 Antes de mostrar para o murillo lembrar de colocar todas as variaves com o padrao
 de todas a primeira letra minuscula e as demais maisculas   
 
-pedir ajuda com o valor null do projeto na tabela hour para trazer para a view ele exibe um hoario aleatorio
+Pedir ajuda tmb para poder exibir uma mensagem para quando o usuario já tiver colocado os registros do dia 
+mensagem tipo um alert na tela tipo Batimentos do dia já realizados 
+
+Tema 
+o tema neste projeto funciona assim 
+temos 4 rotas cada uma com um nome porem todas chamam a mesma função que verifica o nome 
+da rota e devolve um valor para $theme com base nisso pegamos o 
+Session::put('NOVOVALORDATABELA', VALORADICIONADO); e adicionamos um campo chamado theme e preenchemos com 
+o valor do if apos isso nas rotas CSS usamos o Session::get ou seja resgatamos esse valor da sessao e preenchemos ele 
+na rota para definir o que sera chamado 

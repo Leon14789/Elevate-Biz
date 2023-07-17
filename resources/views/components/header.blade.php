@@ -21,15 +21,23 @@
         <div class="menu-user-content">
             <ul class="nav-list">
                 <li class="nav-item">
-                <a href="{{ route('destroy') }}">
-                    <i class="icofont-duotone icofont-sign-out icofont-2x mx-2"></i>
-                        Sair
+                <a href="{{ route('themeSelection') }}">
+                    <i class="icofont-duotone icofont-manage-user icofont-2x mx-2"></i>
+                        Configurações
                 </a>
                 </li>
+
+                <li class="nav-item">
+                <a href="{{ route('destroy') }}">
+                    <i class="icofont-duotone icofont-exit icofont-2x mx-2"></i>
+                        SAIR
+                </a>
+                </li>
+               
                 
             </ul>
         </div>
     </div>
-
+   
 </header>
 

@@ -40,7 +40,8 @@ header.header {
     header.header .menu-user-content {
        display: none; 
        position: absolute;
-       min-width: 100%;
+       min-width: 20%;
+       right: 0%;
        background-color: var(--primary-color);
        z-index: 100;
        box-shadow: 0px 14px 5px 0px rgba(0,0,0,0.75);

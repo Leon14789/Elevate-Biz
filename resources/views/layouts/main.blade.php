@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/icofont.css">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/root.css">
-    <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/mainContent.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
-    <link rel="stylesheet" href="/assets/css/sidebar.css">
-    <link rel="stylesheet" href="/assets/css/button.css">
+    <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/root.css">
+    <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/header.css">
+    <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/mainContent.css">
+    <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/footer.css">
+    <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/sidebar.css">
+    <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/button.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 
    

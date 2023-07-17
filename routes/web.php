@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\dataGeneratorController;
+use App\Http\Controllers\userPreferences;
 use App\Http\Controllers\pointRecords;
 use App\Http\Controllers\reportsMonthly;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,7 @@ Route::get('/', function () {
 
 
 // Logout 
-Route::get('/AuthenticatedSessionController', [AuthenticatedSessionController::class, 'destroy'])->name('destroy');
+Route::get('/Sair', [AuthenticatedSessionController::class, 'destroy'])->name('destroy');
 
 // Create metody hours 
 Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayTemplateByOdds']);
@@ -30,11 +31,16 @@ Route::get('/Registrar-Ponto', [pointRecords::class, 'listWoringHours'])->name('
 
 // clock In
 Route::get('/Primeiro-Ponto-Batido', [pointRecords::class, 'insertHours'])->name('inserthours');
-
-// functionality to change times2,3 and 4 fields
 Route::get('/Bater-Demais-Pontos', [pointRecords::class, 'editHours'])->name('editHours');
-
 Route::get('/Registrar-Editar-Ponto', [pointRecords::class, 'createOrEditRecord'])->name('createOrEditRecord');
+
+
+// Theme Selection
+Route::get('/Configuracoes', [userPreferences::class, 'themeSelection'])->name('themeSelection');
+Route::get('/devTheme', [userPreferences::class, 'themeSelection'])->name('devTheme');
+Route::get('/darkTheme', [userPreferences::class, 'themeSelection'])->name('darkTheme');
+Route::get('/lithTheme', [userPreferences::class, 'themeSelection'])->name('lithTheme');
+Route::get('/standardTheme', [userPreferences::class, 'themeSelection'])->name('standardTheme');
 
 
 Route::get('/dashboard', function () {

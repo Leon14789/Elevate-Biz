@@ -24,14 +24,7 @@ class hour extends Model
       return $registry ?: null;
   }
 
-   public function getnextTime() {
-      if(!$this->time1) return 'time1';
-      if(!$this->time2) return 'time2';
-      if(!$this->time3) return 'time3';
-      if(!$this->time4) return 'time4';
-      return null;
-
-   }
+ 
 
   
    

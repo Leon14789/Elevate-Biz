@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #282a36; 
+    --secondary-color: #6272a4; 
+    --tertiary-color: #f8f8f2; 
+    
+    
+    
+    --footer-color: #44475a;          
+    
+    --text-color-primary: #f8f8f2;      /* Cor do texto principal */
+    --text-color-secondary: #6272a4;    /* Cor do texto secundário */
+    --text-color-tertiary: #f1fa8c;     /* Cor do texto terciário */
+    
+    --button-color: #bd93f9;            /* Cor dos botões */
+    
+    }

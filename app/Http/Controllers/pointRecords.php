@@ -81,12 +81,18 @@ class pointRecords extends Controller
    function listWoringHours() {
       $user = Auth::User();
       $resultPont = Hour::loadFromUserAndDate($user->id, date('Y-m-d'));
-  
-      $time1 = $resultPont ? date('H:i:s', strtotime($resultPont->time1)) : 'Sem Batimento';
-      $time2 = $resultPont ? date('H:i:s', strtotime($resultPont->time2)) : 'Sem Batimento';
-      $time3 = $resultPont ? date('H:i:s', strtotime($resultPont->time3)) : 'Sem Batimento';
-      $time4 = $resultPont ? date('H:i:s', strtotime($resultPont->time4)) : 'Sem Batimento';
-  
+      
+      if ($resultPont !== null) {
+         $time1 = $resultPont->time1 !== null ? date('H:i:s', strtotime($resultPont->time1)) : '---';
+         $time2 = $resultPont->time2 !== null ? date('H:i:s', strtotime($resultPont->time2)) : '---';
+         $time3 = $resultPont->time3 !== null ? date('H:i:s', strtotime($resultPont->time3)) : '---';
+         $time4 = $resultPont->time4 !== null ? date('H:i:s', strtotime($resultPont->time4)) : '---';
+     } else {
+         $time1 = '---';
+         $time2 = '---';
+         $time3 = '---';
+         $time4 = '---';
+     }
       return view('pages/point/registerPont', [
          'resultPont' => $resultPont,
          'time1' => $time1,
