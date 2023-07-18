@@ -13,6 +13,9 @@ class pointRecords extends Controller
 
    
    public function insertHours(Request $request) {
+      $successMessage = '1° Ponto Batido com Sucesso';
+      $errorMessage = 'Você já realizou os batimentos do dia, volte amanhã';
+  
       $user = Auth::User(); 
       $userId = $user->id;
 
@@ -20,12 +23,20 @@ class pointRecords extends Controller
       $hours->user_id = $userId;
       $hours->work_date = date('Y-m-d');
       $hours->time1 = date('Y-m-d H:i:s') ;
-      $hours->save();
-      
-      return  redirect()->route('registerPoint');
+
+
+      try {
+         $hours->save();
+         return redirect()->route('registerPoint')->with('successMessage', $successMessage);
+      } catch (\Throwable $th) {
+         return redirect()->route('registerPoint')->with('errorMessage', $errorMessage);
+      }
+
+     
    }
 
    public function editHours() {
+      $successMessage = 'Ponto realizado com Sucesso';
    /*
       Nesta parte pegamos pelo Id o ultimo registro encontrado
    */
@@ -49,9 +60,8 @@ class pointRecords extends Controller
              $latestRecord->time4 = date('Y-m-d H:i:s');
          }
      }
-
-          $latestRecord->save();
-          return  redirect()->route('registerPoint');
+     $latestRecord->save();
+     return redirect()->route('registerPoint')->with('successMessage', $successMessage);
    }
 
    /*
@@ -67,7 +77,7 @@ class pointRecords extends Controller
          ->latest()
          ->first();
 
-         if ($latestRecord->time4 == null) {
+         if ($latestRecord && $latestRecord->time4 == null) {
             $this->editHours();
             
          } else {

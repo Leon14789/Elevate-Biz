@@ -14,6 +14,18 @@
     subtitle="Mantenha seu Ponto Consistente" />
 
     <div class="card">
+    @if (session('successMessage'))
+    <div class="alert alert-success">
+        {{ session('successMessage') }}
+    </div>
+@endif
+
+@if (session('errorMessage'))
+    <div class="alert alert-danger">
+        {{ session('errorMessage') }}
+    </div>
+@endif
+
         <div class="card-header">
             <h3> 
                 Dia {{ now()->format('d') }} 
