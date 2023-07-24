@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\dataGeneratorController;
 use App\Http\Controllers\userPreferences;
+use App\Http\Controllers\calculetedHours;
 use App\Http\Controllers\pointRecords;
 use App\Http\Controllers\reportsMonthly;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,7 @@ Route::get('/Sair', [AuthenticatedSessionController::class, 'destroy'])->name('d
 Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayTemplateByOdds']);
 
 // reportsMonthly
-Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'teste'])->name('reportsMonthly');
+Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'reportsMonthly'])->name('reportsMonthly');
 
 
 // listWoringHours 
@@ -41,6 +42,11 @@ Route::get('/devTheme', [userPreferences::class, 'themeSelection'])->name('devTh
 Route::get('/darkTheme', [userPreferences::class, 'themeSelection'])->name('darkTheme');
 Route::get('/lithTheme', [userPreferences::class, 'themeSelection'])->name('lithTheme');
 Route::get('/standardTheme', [userPreferences::class, 'themeSelection'])->name('standardTheme');
+
+
+// teste
+Route::get('/teste', [calculetedHours::class, 'getTimes'])->name('teste');
+
 
 
 Route::get('/dashboard', function () {

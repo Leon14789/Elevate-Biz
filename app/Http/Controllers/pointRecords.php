@@ -24,7 +24,11 @@ class pointRecords extends Controller
       $hours->work_date = date('Y-m-d');
       $hours->time1 = date('Y-m-d H:i:s') ;
 
-
+         /*
+         Neste bloco nos como try salvamos e exibimos a mensagem de salvamento POREM
+         se ele cair em qualquer esse irá exibir a mensagem de erro
+         para nao cair na tela sem tratamento de erro
+         */
       try {
          $hours->save();
          return redirect()->route('registerPoint')->with('successMessage', $successMessage);

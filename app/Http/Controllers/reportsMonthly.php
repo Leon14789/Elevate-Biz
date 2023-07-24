@@ -8,7 +8,7 @@ use App\Models\Hour;
 class reportsMonthly extends Controller
 {
 
-    function teste() {
+    function reportsMonthly() {
 
         $woringHouyrs = Hour::all();
      
