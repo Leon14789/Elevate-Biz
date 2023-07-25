@@ -45,7 +45,7 @@ Route::get('/standardTheme', [userPreferences::class, 'themeSelection'])->name('
 
 
 // teste
-Route::get('/teste', [calculetedHours::class, 'getTimes'])->name('teste');
+Route::get('/teste', [calculetedHours::class, 'getNextTime'])->name('teste');
 
 
 

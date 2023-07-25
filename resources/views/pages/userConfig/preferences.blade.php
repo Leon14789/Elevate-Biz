@@ -10,7 +10,7 @@
 
     <div class="card">
         <div class="card-header">
-           <h3>Selecione o  desejado:</h3>
+           <h3>Selecione o tema desejado:</h3>
         </div>
         <div class="card-body">
 

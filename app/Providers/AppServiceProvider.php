@@ -25,5 +25,12 @@ class AppServiceProvider extends ServiceProvider
             $result = (new calculetedHours())->displayHoursWorked();
             $view->with('result', $result);
         });
+
+        View::composer('components.left-menu', function ($view) {
+            $nextTime = (new calculetedHours())->getActiveclock();
+            $view->with('nextTime', $nextTime);
+        });
+
+
     }
 }

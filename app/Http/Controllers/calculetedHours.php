@@ -55,13 +55,38 @@ class calculetedHours extends Controller
 
 
 
-     public function nextTime(){
-        if(!$this->time1) return 'time1';
-        if(!$this->time2) return 'time2';
-        if(!$this->time3) return 'time3';
-        if(!$this->time4) return 'time4';
+     public function getNextTime(){
+
+        $user = Auth::user();
+        $userId = $user->id;
+
+        $latestRecord = Hour::where('user_id', $userId)
+            ->latest()
+            ->first();
+
+
+        if(!$latestRecord->time1) return 'time1';
+        if(!$latestRecord->time2) return 'time2';
+        if(!$latestRecord->time3) return 'time3';
+        if(!$latestRecord->time4) return 'time4';
         return null;
     
+      }
+
+      
+
+      function getActiveclock() {
+        $nextTime = $this->getNextTime();
+
+        if ($nextTime == 'time1' || $nextTime == 'time3') {
+            return 'exitTime';
+        } elseif ($nextTime === 'time2' || $nextTime === 'time4') {
+            return 'WorkedInterval';
+        } else {
+            return null;
+        }
+       
+
       }
 
 

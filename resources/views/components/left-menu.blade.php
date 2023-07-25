@@ -41,7 +41,9 @@
             <div class="sidebar-widget">
                 <i class="icon icofont-duotone icofont-play-circle icofont-2x mr-2" id="icon"></i>
                 <div class="information">
-                    <span class="information-main text-primary">  {{ $result['workedInterval'] }}  </span>
+                    <span class="information-main text-primary" {{ $nextTime === 'WorkedInterval' ? 'active-clock' : '' }}> 
+                        
+                    {{ $result['workedInterval'] }}  </span>
                     <span class="label">Horas Trabalhadas</span>
                 </div>
             </div>
@@ -51,7 +53,8 @@
             <div class="sidebar-widget">
                 <i class="icon icofont-duotone icofont-pause icofont-2x mr-2" id="icon"></i>
                 <div class="information">
-                    <span class="information-main text-danger">{{ $result['exitTime'] }}</span>
+                    <span class="information-main text-danger"  {{ $nextTime === 'exitTime' ? 'active-clock' : '' }}>
+                        {{ $result['exitTime'] }}</span>
                     <span class="label">Hora de Saida</span>
                 </div>
             </div>
