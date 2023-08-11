@@ -55,7 +55,7 @@ class calculetedHours extends Controller
 
 
 
-     public function getNextTime(){
+  public function getNextTime(){
 
         $user = Auth::user();
         $userId = $user->id;
@@ -64,7 +64,7 @@ class calculetedHours extends Controller
             ->latest()
             ->first();
 
-
+        if ($latestRecord === null) {return null;}
         if(!$latestRecord->time1) return 'time1';
         if(!$latestRecord->time2) return 'time2';
         if(!$latestRecord->time3) return 'time3';
@@ -98,7 +98,7 @@ class calculetedHours extends Controller
     
 */
 
-    private function   getWorkedIntervals(){
+    public function   getWorkedIntervals(){
         [$t1, $t2, $t3, $t4] = $this->getTimes();
 
         $part1 = new \DateInterval('PT0S');
@@ -112,6 +112,22 @@ class calculetedHours extends Controller
         
         return $this->sumIntervals($part1, $part2);
         
+      }
+
+      /* FUNCAO USADA PARA ATRIBUIR VALOR A WORKEED_TIME
+
+        Nesta funcao pegamos o valor de um intervalo e somamos ele no date2
+        e retornamos o d2 menos o d1 para poder obter a quantidade de horas trabalhadas
+      */
+
+      public function getSecondsFromDateInterval($interval) {
+        $date1 = new \DateTimeImmutable();
+        $date2 = $date1->add($interval);
+        $result = $date2->getTimestamp() - $date1->getTimestamp();
+       
+        return $result;
+
+
       }
       
 
@@ -144,19 +160,22 @@ class calculetedHours extends Controller
         com o valor do intervalo  para poder ter outra estimativa 
     */
 
-   private function getExitWork() {
+   public function getExitWork() {
         [$t1,,, $t4] = $this->getTimes();
         $workDay = new \DateInterval('PT8H');
         
-
+       
         if (!$t1) {
-            return (new  \DateTime())->add($workDay);
+            return (new  \DateTimeImmutable())->add($workDay);
+            dd($workDay);
         } elseif ($t4) {
             return $t4;
         } else {
             $total = $this->sumIntervals($workDay, $this->getLunchInterval());
             return $t1->add($total);
         }
+
+       
     }
 
 

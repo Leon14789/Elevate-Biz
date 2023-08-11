@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Hour;
 use App\Models\User;
+use App\Http\Controllers\calculetedHours;
+
 use Illuminate\Support\Facades\Auth;
 
 
-class pointRecords extends Controller
+class pointRecords extends calculetedHours
 {
 
    
@@ -62,6 +64,8 @@ class pointRecords extends Controller
              $latestRecord->time3 = date('Y-m-d H:i:s');
          } elseif ($latestRecord->time4 === null) {
              $latestRecord->time4 = date('Y-m-d H:i:s');
+            $latestRecord->worked_time = $this->getSecondsFromDateInterval($this->getWorkedIntervals());
+
          }
      }
      $latestRecord->save();

@@ -39,13 +39,13 @@ Route::get('/Registrar-Editar-Ponto', [pointRecords::class, 'createOrEditRecord'
 // Theme Selection
 Route::get('/Configuracoes', [userPreferences::class, 'themeSelection'])->name('themeSelection');
 Route::get('/devTheme', [userPreferences::class, 'themeSelection'])->name('devTheme');
-Route::get('/darkTheme', [userPreferences::class, 'themeSelection'])->name('darkTheme');
-Route::get('/lithTheme', [userPreferences::class, 'themeSelection'])->name('lithTheme');
-Route::get('/standardTheme', [userPreferences::class, 'themeSelection'])->name('standardTheme');
+Route::get('/temaNoturno', [userPreferences::class, 'themeSelection'])->name('darkTheme');
+Route::get('/temaMinimalistico', [userPreferences::class, 'themeSelection'])->name('lithTheme');
+Route::get('/temaPadrao', [userPreferences::class, 'themeSelection'])->name('standardTheme');
 
 
 // teste
-Route::get('/teste', [calculetedHours::class, 'getNextTime'])->name('teste');
+Route::get('/teste', [reportsMonthly::class, 'reportsMonthly'])->name('teste');
 
 
 

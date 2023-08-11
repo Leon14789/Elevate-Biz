@@ -6,6 +6,14 @@ use Illuminate\Support\ServiceProvider;
 return [
 
     /*
+        variable for calculated work day
+    */
+
+    'constants' => [
+        'DAILY_TIME' => 60 * 60 * 8,
+    ],
+
+    /*
     |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
@@ -41,6 +49,7 @@ return [
     | application. If disabled, a simple generic error page is shown.
     |
     */
+    
 
     'debug' => (bool) env('APP_DEBUG', false),
 
