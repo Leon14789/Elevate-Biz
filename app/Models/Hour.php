@@ -24,7 +24,7 @@ class hour extends Model
       return $registry ?: null;
   }
 
- 
+
 
   
    

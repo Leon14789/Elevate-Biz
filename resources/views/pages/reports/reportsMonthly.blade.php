@@ -40,15 +40,21 @@
                     <th>Saida 1</th>
                     <th>Entrada 2</th>
                     <th>Saida 2</th>
+                    <th>Saldo Diario</th>
+
                 </thead>
 
                 <tbody>
                    <tr>
-                    <td>{{$registries->work_date}}</td>
+                   <td>{{ $registries->work_date }}</td>
+
+
                     <td>{{$registries->time1}}</td>
                     <td>{{$registries->time2}}</td>
                     <td>{{$registries->time3}}</td>
                     <td>{{$registries->time4}}</td>
+                    <td>{{ $registries->dailyBalanceAmount }}</td>
+
                    </tr>
 
                 </tbody>

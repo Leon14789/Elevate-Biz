@@ -7,8 +7,10 @@ use App\Models\Hour;
 use Illuminate\Support\Facades\Auth;
 
 class reportsMonthly extends Controller
+
 {
 
+   
     /*
         Aqui pegamos os segundos e dividimos por 3600 (quat de segundos e uma hora)
         pegamos o modulo disso e dividimos por 60 para obter os minutos 
@@ -167,15 +169,26 @@ class reportsMonthly extends Controller
 
            if ($registry) {
             $sumOfworkedTime += $registry->worked_time;
-
+            $registry->work_date = date('d-m-Y', strtotime($registry->work_date));
+            $registry->time1 = date('H:i:s', strtotime($registry->time1));
+            $registry->time2 = date('H:i:s', strtotime($registry->time2));
+            $registry->time3 = date('H:i:s', strtotime($registry->time3));
+            $registry->time4 = date('H:i:s', strtotime($registry->time4));
                 array_push($report, $registry);
+                $balance = $registry->worked_time - config('app.constants.DAILY_TIME');
+                $balanceString = $this->getTimeStringFromSeconds(abs($balance));
+                $dailyBalanceAmount = ($balance >= 0) ? "+{$balanceString}" : "-{$balanceString}";
+                $registry->dailyBalanceAmount = $dailyBalanceAmount;
             }  else {
             array_push($report, new Hour([
-                'work_date' => $date,
-                'worked_time' => 0
+                'work_date' => date('d-m-Y', strtotime($date)),
+                'worked_time' => 0,
+                'dailyBalanceAmount' => "----------",
+               
             ])); 
            
            }
+
           
         }
      
@@ -187,13 +200,13 @@ class reportsMonthly extends Controller
 
 
         return view('pages/reports/reportsMonthly', 
-         compact(['report', 
+         compact(['report', 'dailyBalanceAmount',
          'sumOfworkedTimeconverted', 
          'valueExpectedworkeedTime']));
     }
 
    
-
+  
   
 
     
