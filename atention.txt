@@ -34,3 +34,4 @@ o valor do if apos isso nas rotas CSS usamos o Session::get ou seja resgatamos e
 na rota para definir o que sera chamado 
 
 
+paramos na aula 298 em 13:02 minutos

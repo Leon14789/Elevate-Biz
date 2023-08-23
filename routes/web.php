@@ -24,8 +24,7 @@ Route::get('/Sair', [AuthenticatedSessionController::class, 'destroy'])->name('d
 Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayTemplateByOdds']);
 
 // reportsMonthly
-Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'reportsMonthly'])->name('reportsMonthly');
-
+ Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'reportsMonthly'])->name('reportsMonthly');
 
 // listWoringHours 
 Route::get('/Registrar-Ponto', [pointRecords::class, 'listWoringHours'])->name('registerPoint');
@@ -45,7 +44,7 @@ Route::get('/temaPadrao', [userPreferences::class, 'themeSelection'])->name('sta
 
 
 // teste
-Route::get('/teste', [reportsMonthly::class, 'reportsMonthly'])->name('teste');
+Route::get('/teste', [reportsMonthly::class, 'filtrarRelatorio'])->name('teste');
 
 
 

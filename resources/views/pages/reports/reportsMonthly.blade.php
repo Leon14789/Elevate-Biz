@@ -12,6 +12,17 @@
 
     <div class="card">
 
+    <form action="#" class="mb-4" method="POST">
+   
+            <select name="period" class="form-control" placeholder="Selecione o Periodo">
+            <option value='#'>  Selecione o Periodo</option>
+            @foreach ($periods as $key => $value) 
+            <option value='{{$key}}'>  {{$value}}</option>
+            @endforeach
+            </select>
+           
+        </form>
+
         <div class="card-header">
             <table class="table table-bordered">
                 <tbody>

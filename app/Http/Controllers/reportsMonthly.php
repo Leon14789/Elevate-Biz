@@ -147,9 +147,17 @@ class reportsMonthly extends Controller
 
          para calcular o tempo experado que o usuario tenha trabalho usamos a variavel expectedTIme 
          passando a constante de config DAILY_TIME
+
+         usamos a variavel belance para fazer um calculo que ira definir se ele esta devendo ou com horas no banco 
+         de dados 
+
+         usamos o valueExpectedworkeedTime somenete para poder colocar o valor com uma msg 
+
+
+
     */
 
-    public function reportsMonthly() {
+    public function reportsMonthly(Request $request ) {
         $user = Auth::User(); 
         $userId = $user->id;
        
@@ -160,6 +168,7 @@ class reportsMonthly extends Controller
         $workDay = 0;
         $sumOfworkedTime = 0;
         $lastDay = $this->getLastDayMonthly($currentDate)->format('d');
+        $dailyBalanceAmount = '';
        
         for ($day = 1; $day <= $lastDay; $day++) { 
            $date = $currentDate->format('Y-m') . '-' . sprintf('%02d',$day);
@@ -199,14 +208,41 @@ class reportsMonthly extends Controller
         $sumOfworkedTimeconverted = $this->getTimeStringFromSeconds(abs($sumOfworkedTime));
 
 
+        // Filtrar mes expecifico de trablho 
+        $selectPeriod = $request->input('period') ? $period->input('period') : $currentDate->format('Y-m');
+        
+        for($yearDiff = 10; $yearDiff >= 0; $yearDiff--) {
+            $year = date('Y') - $yearDiff;
+    
+            for($month = 1; $month <= 12; $month++) {
+                $date = new \DateTime("{$year}-{$month}-1");
+                $periods[$date->format('Y - m')] = strftime('%m de %Y', $date->getTimestamp());
+    
+                
+            }
+        }
+
+
         return view('pages/reports/reportsMonthly', 
-         compact(['report', 'dailyBalanceAmount',
+         compact([
+        'report', 
+         'dailyBalanceAmount',
          'sumOfworkedTimeconverted', 
-         'valueExpectedworkeedTime']));
+         'valueExpectedworkeedTime', 
+        'periods'
+        ]));
     }
 
+    /*
+        Nesta Função eu recebo o valor do select e uso os for para poder criar o que sera 
+        exibido ao usuario, isto é o ano mes e dias 
+
+        dentro do segundo for eu crio uma chave e valor que irá estar exibindo o resultado da 
+        pesquisa do usuario
+    */
+
    
-  
+ 
   
 
     
