@@ -9,19 +9,38 @@
     title="Vizualizar Relatorios Mensal"
     subtitle="Acompanhe o Saldo de Horas" />
 
+@if($user->is_admin)
+    <form action="{{ route('testando') }}"  class="mb-4" method="POST">
+    @csrf
+        <div class="input-group">
+            <select name="user" class="form-control" >
+                    <option value='null'>  Selecione o Funcionario</option>
+                @foreach ($users as $user) 
+                        <option value='{{$user->id}}' >  {{$user->name}}</option>
+                @endforeach
+            </select>
+        
+            <select name="period" class="form-control ml-2 mr-2" >
+                    <option value='null'>  Selecione o Periodo</option>
+                @foreach ($periods as $key => $value) 
+                    <option value='{{$key}}'>  {{$value}}</option>
+                @endforeach
+            </select>
+                
+         
+
+            <button type="submit" class="button">
+            <i class="icofont-duotone icofont-folder-open icofont-1x"></i>
+        </button>
+
+        </div>
+    </form>
+@endif
+
 
     <div class="card">
 
-    <form action="#" class="mb-4" method="POST">
    
-            <select name="period" class="form-control" placeholder="Selecione o Periodo">
-            <option value='#'>  Selecione o Periodo</option>
-            @foreach ($periods as $key => $value) 
-            <option value='{{$key}}'>  {{$value}}</option>
-            @endforeach
-            </select>
-           
-        </form>
 
         <div class="card-header">
             <table class="table table-bordered">

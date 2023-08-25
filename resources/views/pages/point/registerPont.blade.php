@@ -29,7 +29,7 @@
         <div class="card-header">
             <h3> 
                 Dia {{ now()->format('d') }} 
-                de {{ now()->format('M') }} 
+                do {{ now()->format('m') }} 
                 de {{ now()->format('Y') }} 
             </h3>
             <p>Batimentos Efetuados Hoje: </p>

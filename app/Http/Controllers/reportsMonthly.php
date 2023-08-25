@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hour;
+use App\Models\User;
+
 use Illuminate\Support\Facades\Auth;
 
 class reportsMonthly extends Controller
@@ -122,58 +124,55 @@ class reportsMonthly extends Controller
     }
 
    
-    /*
-         Esta funcao utiliza de algumas funcoes como getMonthlyReports
-         e nela nos passamo o Id do usuario e a data para a funcao getMonthlyReports
-         e para a funcao getLastDayMonthly nos passamos o dia 
 
-         e dentro do for nos pegamos concatenamos a data com a variavel day passando 
-         dois caracteres caso o dia esteja entre 1 e 9 
-
-         apos isso nos criamos uma variavel registry e acessamos os registros encontrados na funcao 
-
-         getMonthlyReports (mais especificamente o valor $date worked_time) e caso nao encontre algo ele retorna
-         null
-
-         no if nos verificamos se esse registry esta setado caso sim ele ira 
-         dar um array_push($report, $registry); ou seja ira atribuir os registros no report
-
-         e ira fazer uma atribuicao concatenativa em  $sumOfworkedTime += $registry->worked_time;
-
-         e se o valor nao estiver instanciado ele ira chamar o work_date passado a variavel $date
-         e colocara o worked_time como 0
-
-         ou seja o valor final a ser passado dos registros esta em report
-
-         para calcular o tempo experado que o usuario tenha trabalho usamos a variavel expectedTIme 
-         passando a constante de config DAILY_TIME
-
-         usamos a variavel belance para fazer um calculo que ira definir se ele esta devendo ou com horas no banco 
-         de dados 
-
-         usamos o valueExpectedworkeedTime somenete para poder colocar o valor com uma msg 
-
-
-
-    */
-
-    public function reportsMonthly(Request $request ) {
+    public function reportsMonthly(Request $request) {
         $user = Auth::User(); 
         $userId = $user->id;
+        $dailyBalanceAmount = '';
+        $selectedUserId = $user->id;
+        $users = null;
        
+        
+         // Verirficação se É Admin
+         if($user->is_admin) {
+            $users = User::All(); 
+            $selectedUserId = $request->input('user') ? $request->input('user') : $user->id; 
+        }
 
         $currentDate = new \DateTime();
-        $registries = $this->getMonthlyReports($userId, $currentDate);
+
+        // Pegando a Data Vinda do Request 
+        $selectedPeriod = $request->input('period') ? $request->input('period')  : $currentDate->format('Y-m');
+
+        $periods = [];
+
+
+        // Criando o conjunto chave e valor do Selected
+        for($yearDiff = 0; $yearDiff <= 10; $yearDiff++  ) {
+            $year = date('Y') - $yearDiff;
+
+                for($month = 1; $month <=12; $month++) {
+                    $date = new \DateTime("{$year}-{$month}-1");
+                        $periods[$date->format('Y-m')] = strftime('%d / %m / %Y', $date->getTimestamp());
+                }
+
+        }
+        
+
+        // Pegando o ID do usuario e o periodo que pode vir do Request ou ser o mes atual
+        $registries = $this->getMonthlyReports($selectedUserId, $selectedPeriod);
         $report = [];
+      
         $workDay = 0;
         $sumOfworkedTime = 0;
-        $lastDay = $this->getLastDayMonthly($currentDate)->format('d');
-        $dailyBalanceAmount = '';
+        $lastDay = $this->getLastDayMonthly($selectedPeriod)->format('d');
        
+
+
+        // For para Listar os times batidos no mes - Junto com a validação de horas trabalhadas
         for ($day = 1; $day <= $lastDay; $day++) { 
-           $date = $currentDate->format('Y-m') . '-' . sprintf('%02d',$day);
+           $date = $selectedPeriod . '-' . sprintf('%02d',$day);
            $registry = $registries[$date] ?? null;
-        
            if($this->isPastWorkedDay($date)) $workDay++;
 
            if ($registry) {
@@ -183,10 +182,11 @@ class reportsMonthly extends Controller
             $registry->time2 = date('H:i:s', strtotime($registry->time2));
             $registry->time3 = date('H:i:s', strtotime($registry->time3));
             $registry->time4 = date('H:i:s', strtotime($registry->time4));
+
                 array_push($report, $registry);
                 $balance = $registry->worked_time - config('app.constants.DAILY_TIME');
                 $balanceString = $this->getTimeStringFromSeconds(abs($balance));
-                $dailyBalanceAmount = ($balance >= 0) ? "+{$balanceString}" : "-{$balanceString}";
+                $dailyBalanceAmount = ($balance >= 0) ? "{$balanceString}" : "-{$balanceString}";
                 $registry->dailyBalanceAmount = $dailyBalanceAmount;
             }  else {
             array_push($report, new Hour([
@@ -202,25 +202,11 @@ class reportsMonthly extends Controller
         }
      
 
+        // Variaveis vizuais 
         $expectedTime = $workDay * config('app.constants.DAILY_TIME');
         $balance = $this->getTimeStringFromSeconds(abs($sumOfworkedTime - $expectedTime));
         $valueExpectedworkeedTime = ($sumOfworkedTime >= $expectedTime) ? "Você tem {$balance} no banco de Horas" : " Você está devendo {$balance} horas ";
         $sumOfworkedTimeconverted = $this->getTimeStringFromSeconds(abs($sumOfworkedTime));
-
-
-        // Filtrar mes expecifico de trablho 
-        $selectPeriod = $request->input('period') ? $period->input('period') : $currentDate->format('Y-m');
-        
-        for($yearDiff = 10; $yearDiff >= 0; $yearDiff--) {
-            $year = date('Y') - $yearDiff;
-    
-            for($month = 1; $month <= 12; $month++) {
-                $date = new \DateTime("{$year}-{$month}-1");
-                $periods[$date->format('Y - m')] = strftime('%m de %Y', $date->getTimestamp());
-    
-                
-            }
-        }
 
 
         return view('pages/reports/reportsMonthly', 
@@ -228,21 +214,18 @@ class reportsMonthly extends Controller
         'report', 
          'dailyBalanceAmount',
          'sumOfworkedTimeconverted', 
-         'valueExpectedworkeedTime', 
-        'periods'
+         'valueExpectedworkeedTime',
+         'selectedPeriod',
+         'periods',
+         'users',
+         'user',
+         'selectedUserId'
+        
         ]));
     }
 
-    /*
-        Nesta Função eu recebo o valor do select e uso os for para poder criar o que sera 
-        exibido ao usuario, isto é o ano mes e dias 
 
-        dentro do segundo for eu crio uma chave e valor que irá estar exibindo o resultado da 
-        pesquisa do usuario
-    */
 
-   
- 
   
 
     

@@ -25,6 +25,7 @@ Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayT
 
 // reportsMonthly
  Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'reportsMonthly'])->name('reportsMonthly');
+ Route::post('/Filtrando-Relatorios', [reportsMonthly::class, 'reportsMonthly'])->name('testando');
 
 // listWoringHours 
 Route::get('/Registrar-Ponto', [pointRecords::class, 'listWoringHours'])->name('registerPoint');
