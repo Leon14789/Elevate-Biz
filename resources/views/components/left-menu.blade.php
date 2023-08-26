@@ -18,7 +18,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#">
+                    <a href="{{route('reportManagement')}}">
                     <i class="icofont-pie-chart"></i>
                     <i class="icofont-duotone icofont-sourcetree icofont-2x mr-2"></i>
                         Relatorio Gerencial

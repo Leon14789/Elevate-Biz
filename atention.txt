@@ -9,7 +9,7 @@ when running the commands
 
 php artisan breeze:install blade
  
-php artisan migrate
+php artisan migrate --seed
 npm install
 npm run dev
 
@@ -33,5 +33,4 @@ Session::put('NOVOVALORDATABELA', VALORADICIONADO); e adicionamos um campo chama
 o valor do if apos isso nas rotas CSS usamos o Session::get ou seja resgatamos esse valor da sessao e preenchemos ele 
 na rota para definir o que sera chamado 
 
-
-paramos na aula 298 em 13:02 minutos
+Deixar o Seeder padrao como aquele que criar 3 usuarios

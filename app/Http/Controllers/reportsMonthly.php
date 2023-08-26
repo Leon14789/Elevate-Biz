@@ -167,12 +167,13 @@ class reportsMonthly extends Controller
         $sumOfworkedTime = 0;
         $lastDay = $this->getLastDayMonthly($selectedPeriod)->format('d');
        
-
+        
 
         // For para Listar os times batidos no mes - Junto com a validação de horas trabalhadas
         for ($day = 1; $day <= $lastDay; $day++) { 
            $date = $selectedPeriod . '-' . sprintf('%02d',$day);
            $registry = $registries[$date] ?? null;
+           
            if($this->isPastWorkedDay($date)) $workDay++;
 
            if ($registry) {
@@ -200,11 +201,11 @@ class reportsMonthly extends Controller
 
           
         }
-     
+      
 
         // Variaveis vizuais 
         $expectedTime = $workDay * config('app.constants.DAILY_TIME');
-        $balance = $this->getTimeStringFromSeconds(abs($sumOfworkedTime - $expectedTime));
+        $balance = $this->getTimeStringFromSeconds(abs($sumOfworkedTime - $expectedTime  ));
         $valueExpectedworkeedTime = ($sumOfworkedTime >= $expectedTime) ? "Você tem {$balance} no banco de Horas" : " Você está devendo {$balance} horas ";
         $sumOfworkedTimeconverted = $this->getTimeStringFromSeconds(abs($sumOfworkedTime));
 

@@ -29,7 +29,7 @@ class CreateUserSeeder extends Seeder
             'password' => '123456789', 
             'remember_token' => Str::random(10),
             'start_date' => '2000-01-01',
-            'end_date' => now(),
+            'end_date' => NULL,
             'is_admin' => random_int(0, 1),
             
         ]);

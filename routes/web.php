@@ -7,6 +7,7 @@ use App\Http\Controllers\dataGeneratorController;
 use App\Http\Controllers\userPreferences;
 use App\Http\Controllers\calculetedHours;
 use App\Http\Controllers\pointRecords;
+use App\Http\Controllers\reportManagement;
 use App\Http\Controllers\reportsMonthly;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,10 @@ Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayT
  Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'reportsMonthly'])->name('reportsMonthly');
  Route::post('/Filtrando-Relatorios', [reportsMonthly::class, 'reportsMonthly'])->name('testando');
 
+
+// managementReport
+Route::get('/Relatorios-Gerencial', [reportManagement::class, 'reportManagement'])->name('reportManagement');
+
 // listWoringHours 
 Route::get('/Registrar-Ponto', [pointRecords::class, 'listWoringHours'])->name('registerPoint');
 
@@ -45,7 +50,7 @@ Route::get('/temaPadrao', [userPreferences::class, 'themeSelection'])->name('sta
 
 
 // teste
-Route::get('/teste', [reportsMonthly::class, 'filtrarRelatorio'])->name('teste');
+Route::get('/teste', [reportManagement::class, 'getAbsentUsers'])->name('teste');
 
 
 

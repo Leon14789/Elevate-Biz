@@ -6,7 +6,7 @@
 
 <x-titles-pages 
     iconClass="icofont-duotone icofont-file-check"
-    title="Vizualizar Relatorios Mensal"
+    title=" Relatorios Mensal"
     subtitle="Acompanhe o Saldo de Horas" />
 
 @if($user->is_admin)
