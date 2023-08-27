@@ -1,66 +1,47 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1> Projetc: ELEVATE BIZ</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<h2>Summary:</h2>
+
+<p>
+    The project is a comprehensive management system that offers functionality to manage users, electronic point records and statistical data. It uses PHP with Laravel as a backend framework, MySQL as a database and HTML, JavaScript and CSS to create visual interfaces. With an access hierarchy and several visual themes, the system is able to meet the administration and monitoring needs of companies of different sizes and sectors.
 </p>
 
-## About Laravel
+<hr />
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p>
+    The project in question is a comprehensive management system, developed to carry out CRUD operations (creation, reading, updating and deletion) of users, as well as the management and monitoring of employees' electronic points. It offers an intuitive and user-friendly interface for administrators and employees to manage their activities and interact with system data.
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h2> Main Features: </h2> 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    
 
-## Learning Laravel
+    User CRUD Operations: The system allows creating, editing, viewing and deleting user information. Each user has attributes such as name, title, hierarchy, contact details, etc.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    Electronic Point Registration: Employees can register their arrivals and departures through the system, allowing precise control of hours worked. Records are associated with each user and can be managed centrally.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    Histórico de Pontos: O sistema mantém um histórico detalhado dos registros de pontos de cada usuário, permitindo que os funcionários e administradores visualizem os registros anteriores.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    Points History: The system maintains a detailed history of each user's points records, allowing employees and administrators to view previous records.
 
-## Laravel Sponsors
+    Hierarchy System: Users are organized in a hierarchy including different access levels such as administrator, employee and others. The higher the hierarchical level, the more information and functionality is available.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    Statistical Analysis: Top-level administrators have access to comprehensive statistics, including the number of total employees, who has yet to record points of the day, and records of all users for up to 10 years.
 
-### Premium Partners
+    Visual Themes: The system offers a choice of visual themes, including the default theme with company colors, a minimalist theme, a dark theme (darkula) and a night theme to customize the user experience.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Technologies Used:
 
-## Contributing
+    Backend: The project is built primarily in PHP, a language widely used for web development. The Laravel framework is adopted as the backend framework, which provides a robust architecture and facilitates development, route management, authentication and interaction with the database.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    Database: The system uses the MySQL database to store all user information, point records and history.
 
-## Code of Conduct
+    Frontend: User interfaces are built using a combination of HTML, JavaScript and CSS. These technologies are used to create interactive web pages, form interfaces, graphics and other visual elements.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## In order to enjoy 100% of the project's capacity, you must run the following commands ##
+    npm i
+    composer i
+    php artisan breeze:install blade
+    php artisan migrate --seed
+    npm install
+    npm run dev
