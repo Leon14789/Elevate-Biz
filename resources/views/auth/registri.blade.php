@@ -1,7 +1,26 @@
-<x-guest-layout>
+
+  
+
+
+   
+@extends('layouts.main')
+
+@section('title', 'Cadastro')
+
+<!--  e para reidenizar o conteudo dinamicamente chamamos 
+    a section novamente e dps content -->
+@section('content')
+<link rel="stylesheet" href="/assets/css/login/registre.css">
+<x-titles-pages 
+    iconClass="icofont-duotone icofont-file-check"
+    title="Criar Registro"
+    subtitle="Crie um novo Registro" />
+
+    <div class="card">
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
+ <!-- Validation Errors -->
+ <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <!-- Name -->
     <div class="form-flex">
 
@@ -13,7 +32,7 @@
             <!-- Email  -->
             <label for="email" :value="__('Email')">Email</label>
             <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" placeholder="Insira seu Email" >
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            
         </div>
       
 
@@ -26,6 +45,7 @@
                             type="password"
                             name="password"
                             required autocomplete="new-password">
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
            
             <!-- Confirm Password -->
             <label  for="password_confirmation" :value="__('Confirm Password')">Confirme sua Senha</label>
@@ -50,12 +70,19 @@
                 </select>
         </div>
 
+         <!-- Button -->
+         <div class="two-elements">
+           
+             <button class="ml-4">  {{ __('Cadastrar') }}</button>
+        </div>
+
       
 
-        <div class="flex items-center justify-end ">
-            <button class="ml-4">  {{ __('Cadastrar') }}</button>
-        </div>
+       
+      
 
     </div>
     </form>
-</x-guest-layout>
+    </div>
+
+@endsection

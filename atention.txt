@@ -17,20 +17,3 @@ npm run dev
 
 Buscar como ocultar comentarios ao dar inspecionar no codigo
 
-Dentro deste projeto existe um seeder para testes e criacao de uma jornada de trabalho que vem 
-assosiada a um ID de um usuario o nome do seeder é CreateHoursWorkeedSeeder
-
-com base no mesmo conceito temos o sedder para a criacao de usuarios chamado CreateUsersSeeder
-
-Dentro do projeto é usado para carretgar imgs a funcao asset() que carrega a partir da pasta public
-
-
-Tema 
-o tema neste projeto funciona assim 
-temos 4 rotas cada uma com um nome porem todas chamam a mesma função que verifica o nome 
-da rota e devolve um valor para $theme com base nisso pegamos o 
-Session::put('NOVOVALORDATABELA', VALORADICIONADO); e adicionamos um campo chamado theme e preenchemos com 
-o valor do if apos isso nas rotas CSS usamos o Session::get ou seja resgatamos esse valor da sessao e preenchemos ele 
-na rota para definir o que sera chamado 
-
-Deixar o Seeder padrao como aquele que criar 3 usuarios

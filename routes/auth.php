@@ -11,31 +11,35 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+
+
+
 Route::middleware('guest')->group(function () {
-    Route::get('criarNovoRegistro', [RegisteredUserController::class, 'create'])
-                ->name('register');
 
-    Route::post('criarNovoRegistro', [RegisteredUserController::class, 'store']);
-
+    
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name('password.request');
-
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('password.email');
-
-    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
-                ->name('password.reset');
-
-    Route::post('reset-password', [NewPasswordController::class, 'store'])
-                ->name('password.store');
+    
 });
 
 Route::middleware('auth')->group(function () {
+
+    Route::get('Criar-Novo-Registro', [RegisteredUserController::class, 'create'])
+    ->name('register');
+
+    Route::post('Criar-Novo-Registro', [RegisteredUserController::class, 'store']);
+
+    Route::get('Confirmacao-Para-Deletar/{id}', [RegisteredUserController::class, 'delete'])->name('delete');
+    Route::DELETE('Cadastro/{id}', [RegisteredUserController::class, 'destroyUser'])->name('destroyUser');
+
+    Route::get('Mostrar-Usuario/{id}/', [RegisteredUserController::class, 'edit'])->name('edit');
+
+    Route::put('Editar-Usuario/{id}/', [RegisteredUserController::class, 'update'])->name('update');
+
+
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 

@@ -11,13 +11,16 @@ class reportManagement extends Controller
 {
     
 
-
-    
+/*
+    Nesta função eu verifico os usuarios ativos no banco de dados 
+    vejo tmb quem ainda nao realizou o primeiro batimento do dia 
+    e a quantidade de pessoas que faltaram
+*/
 
     public static function reportManagement() {
         $user = Auth::User(); 
         $date = new \DateTime();
-        
+
        $numberUsersAbsent = 0;
        $informationsUsersAbsent = [];
         
@@ -52,14 +55,7 @@ class reportManagement extends Controller
        ]));
 }
 
-    public static function getWorkedTimeInMonth($yearAndMonth) {
-        $startDate = new \DateTime("{$yearAndMonth}-1");
-        $endDate = getLastDayMonthly("{$yearAndMonth}");
+    
 
-    }
-
-    public static function getActiveUsersCont() {
-        //Crie uma funcao que pegue todos os usuarios que nao tenham o 
-        //end_date setados
-    }
+    
 }

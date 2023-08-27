@@ -31,6 +31,14 @@
         font-size: 1.2rem;
     }
 
+/*
+    Table
+*/
+
+tbody, thead {
+    color: var(--text-color-primary);
+}
+
     /* 
     Card Details in Report Management 
 */

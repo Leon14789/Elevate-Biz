@@ -2,7 +2,7 @@
 @extends('layouts.main')
 <!--  para o titulo vir tinamicamente definimos a section 
     chamamos o title seguido de virgula dps 'o titulo' -->
-@section('title', 'Registrar Batimento')
+@section('title', ' Batimento')
 
 <!--  e para reidenizar o conteudo dinamicamente chamamos 
     a section novamente e dps content -->

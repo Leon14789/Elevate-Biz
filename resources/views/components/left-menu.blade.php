@@ -1,7 +1,7 @@
     <aside class="sidebar">
         <nav class="menu mt-3">
             <ul class="nav-list">
-
+        
                 <li class="nav-item">
                         <a href="{{route('registerPoint')}}">
                     <i class="icofont-duotone icofont-mouse-pointer-highlighter icofont-2x mr-2"></i>
@@ -16,7 +16,7 @@
                         Relatorio Mensal
                     </a>
                 </li>
-
+    @if($user->is_admin)
                 <li class="nav-item">
                     <a href="{{route('reportManagement')}}">
                     <i class="icofont-pie-chart"></i>
@@ -26,13 +26,13 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#">
+                <a href="{{route('users')}}">
                     <i class="icofont-duotone icofont-users icofont-2x mr-2"></i>
                     <i class="icofont-company"></i>
                         Usuarios
                     </a>
                 </li>
-
+    @endif
                 
             </ul>
         </nav>

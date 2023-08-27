@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/sidebar.css">
     <link rel="stylesheet" href="/assets/css/{{ Session::get('theme', 'standardTheme') }}/button.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/assets/css/login/register.css">
    
     
     <title>  @yield('title')</title>

@@ -5,11 +5,15 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\dataGeneratorController;
 use App\Http\Controllers\userPreferences;
+use App\Http\Controllers\users;
 use App\Http\Controllers\calculetedHours;
 use App\Http\Controllers\pointRecords;
 use App\Http\Controllers\reportManagement;
 use App\Http\Controllers\reportsMonthly;
 use Illuminate\Support\Facades\Route;
+
+
+Route::middleware('auth')->group(function () { 
 
 // Dashboard foi usado como tela principal do projeto "index"
 
@@ -21,8 +25,6 @@ Route::get('/', function () {
 // Logout 
 Route::get('/Sair', [AuthenticatedSessionController::class, 'destroy'])->name('destroy');
 
-// Create metody hours 
-Route::get('/dataGeneratorController', [dataGeneratorController::class, 'getDayTemplateByOdds']);
 
 // reportsMonthly
  Route::get('/Relatorios-Mensais', [reportsMonthly::class, 'reportsMonthly'])->name('reportsMonthly');
@@ -49,14 +51,21 @@ Route::get('/temaMinimalistico', [userPreferences::class, 'themeSelection'])->na
 Route::get('/temaPadrao', [userPreferences::class, 'themeSelection'])->name('standardTheme');
 
 
-// teste
-Route::get('/teste', [reportManagement::class, 'getAbsentUsers'])->name('teste');
+// Users
+Route::get('/Usuarios', [users::class, 'users'])->name('users');
+
+
 
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
