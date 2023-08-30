@@ -44,4 +44,4 @@ Technologies Used:
     php artisan breeze:install blade
     php artisan migrate --seed
     npm install
-    npm run dev
+    npm run dev.
